@@ -56,6 +56,7 @@ let boutonSupp = document.querySelectorAll('.supp-to-cart');
 emptyCart.addEventListener('click', function(event){
   let idElt = this.getAttribute('data-id');
   empty();
+  notifEmpty();
 })
 
 function empty(){
@@ -63,6 +64,12 @@ function empty(){
     nombreCours[i].textContent = 10;
     boutonSupp[i].style.display = 'none';
   }
+}
+
+function notifEmpty(){
+  
+    window.alert('Le panier à été vidé');
+  
 }
 
 
