@@ -43,12 +43,11 @@ notifBox.className = 'notification_container';
 for(let i = 0; i < boutonPanier.length; i++){
   let lien = document.createElement('a');
   lien.className = 'supp-to-cart'; 
-  lien.style.cssText = "background: #00B2BD;padding: 5px 10px;border-radius: 6px;color: white;text-decoration: none;font-weight: bold;font-size: 0.8em;bottom: 0; max-width: 140px; margin-left : 10px;"
+  lien.style.cssText = "background: red;padding: 5px 10px;border-radius: 6px;color: white;text-decoration: none;font-weight: bold;font-size: 0.8em;bottom: 0; max-width: 140px; margin-left : 10px;"
   lien.style.display = 'none';
   lien.id = i + "1";
   lien.innerHTML =`
   <i class="fa fa-cart-plus"></i>Supprimer du panier`
-  console.log(i);
   divCourseitem[i].appendChild(lien);
 }
 
