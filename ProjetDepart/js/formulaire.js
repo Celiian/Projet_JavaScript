@@ -11,7 +11,7 @@ divisionprincipale.innerHTML =`
        <input type="text" name="nom" id="nom" />
        </fieldset>
 
-
+       <fieldset>
        <label for="prenom" class="label" >Quel est votre prénom ?</label>
        <input type="text" name="prenom" id="prenom" />
        </fieldset>
@@ -27,12 +27,11 @@ divisionprincipale.innerHTML =`
        </fieldset>
 
        <fieldset>
-       <label for="number"> class="label" Quel est votre numéro de téléphone ?</label>
+       <label for="number" class="label" >  Quel est votre numéro de téléphone ?</label>
        <input type="tel" name="number" id="number" />
        </fieldset>
 
  
-        <div class="label2">
         <fieldset>
         <label for="number" class="label" >Quel est votre numéro de carte bancaire ?</label>
        <input type="number" name="numberCard" id="numberCard" />
@@ -43,19 +42,16 @@ divisionprincipale.innerHTML =`
        </fieldset>
        <fieldset>
        <label for="date" class="label" >Quel est la date d'expiration de votre carte ?</label>
-       <input type="date" name="cardDate" id="cardDate" />
+       <input class = "date" type="date" name="cardDate" id="cardDate" />
        </fieldset>
-        </div>
-
    </fieldset>
  
    <fieldset>
        <legend></legend> <!-- Titre du fieldset -->
        <fieldset>
-       <label for="chexkbox" class="label" >J’accepte les conditions générales de vente du site</label>
-       <input type="checkbox" name="cardDate" id="cardDate" />
+       <label for="checkbox" class="checkbox" >J’accepte les conditions générales de vente du site</label>
+       <input type="checkbox" name="checkbox" id="checkbox" checked />
        </fieldset>
-      
    </fieldset>
 </form>
 <input class="buttonSend" type="button" value="Finaliser la commannde">
@@ -63,17 +59,34 @@ divisionprincipale.innerHTML =`
 `
 divisionprincipale.style.cssText = "max-width : 500px; margin-left : 30%;"
 
-let labell = document.body.querySelectorAll('.label');
 
 // labell.style.cssText = "color : red; "
 
-
-
-
-
-
-
-
-
-
 document.body.appendChild(divisionprincipale);
+
+
+let userInput = document.body.querySelectorAll('input');
+let label = document.body.querySelectorAll('label');
+let button = document.body.querySelector('.buttonSend');
+let date = document.body.querySelector('.date');
+let checkbox = document.body.querySelector('.checkbox');
+
+button.addEventListener('click', function(){
+    let j = 0;
+    let dateContent = date.value;    
+    for (let i = 0; i < userInput.length-2; i ++){
+        let content = userInput[i].value;
+    
+        if (content != ''){
+            j ++;
+            console.log(j);
+        }
+    }
+
+    if(j == 8 && date.value != ''){
+        window.alert('La commande à été éffectué, vous pouvez fermer la page')
+    }
+    else{
+        window.alert('Meci de renseigner tous les champs')
+    }
+})
